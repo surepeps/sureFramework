@@ -16,14 +16,14 @@ class Request
      *
      * @var string $base_Url
      */
-    private static string $base_Url;
+    private static $base_Url;
 
     /**
      * Script name Declaration
      *
      * @var string $script_name
      */
-    private static string $script_name;
+    private static $script_name;
 
     /**
      * URL Declaration
@@ -59,7 +59,7 @@ class Request
      *
      * @return void
      */
-    public static function collector()
+    public static function collector(): void
     {
         static::$script_name = str_replace('\\', '', dirname(Server::getValue('SCRIPT_NAME')));
         static::setBaseUrl();
@@ -70,7 +70,7 @@ class Request
      * @return void
      *
      */
-    private static function setBaseUrl()
+    private static function setBaseUrl(): void
     {
         $protocol = Server::getValue('REQUEST_SCHEME') .'://';
         $host = Server::getValue('HTTP_HOST');
@@ -84,18 +84,18 @@ class Request
      * @return void
      *
      */
-    private static function setUrl()
+    private static function setUrl(): void
     {
         $request_url = urldecode(Server::getValue('REQUEST_URI'));
         $request_url = rtrim(preg_replace("#^". static::$script_name. '#', '', $request_url), '/');
 
         $query_string = '';
         static::$cUrl = $request_url;
-        if (strpos($request_url, '?') !== false){
+        if (strpos($request_url, '?')){
             list($request_url, $query_string) = explode('?', $request_url);
         }
 
-        static::$url = $request_url;
+        static::$url = $request_url ?: '/';
         static::$uQuery = $query_string;
     }
 
@@ -170,7 +170,7 @@ class Request
      * @param array|null $type
      * @return bool|null
      */
-    public static function value(string $key, array $type = null): bool|null
+    public static function value(string $key, array $type = null)
     {
         $type = $type ?? $_REQUEST;
         return static::has($type, $key) ? $type[$key] : null;

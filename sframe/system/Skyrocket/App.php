@@ -12,7 +12,7 @@ namespace sFrameApp\Skyrocket;
 use sFrameApp\Exceptions\Whoops;
 use sFrameApp\FileHandling\Filehandling;
 use sFrameApp\Http\Request;
-use sFrameApp\Http\Server;
+use sFrameApp\Http\Response;
 use sFrameApp\Router\Route;
 use sFrameApp\Session\Session;
 
@@ -51,15 +51,18 @@ class App
          */
         Filehandling::require_directory('routes');
 
+        /**
+         * Routing Handler
+         */
+        $routHandler = Route::routeHandler();
 
 
 
-
-        echo "<pre>";
-        var_dump(Route::allRoutes());
-        echo "</pre>";
-        exit;
-//        echo Request::baseUrl();
+//        echo "<pre>";
+//        print_r(Route::routeHandler());
+//        echo "</pre>";
+//        exit;
+        echo Response::outputData($routHandler);
     }
 
 
