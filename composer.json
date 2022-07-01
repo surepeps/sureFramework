@@ -1,0 +1,22 @@
+{
+    "name": "surecoders/sureframework",
+    "description": "SureFramework (MVC PHP Framework)",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "app\\" : "application/",
+            "sFrameApp\\": "sframe/system/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hassan Tijani.A",
+            "email": "gatukurh1@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "filp/whoops": "^2.14"
+    }
+}
