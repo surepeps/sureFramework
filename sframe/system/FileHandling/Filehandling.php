@@ -88,7 +88,7 @@ class Filehandling
      * @return array|bool
      *@var string $path
      */
-    public static function require_directory(string $path): array|bool
+    public static function require_directory(string $path)
     {
         $fileList =  array_diff(scandir(static::filePath($path)), ['.', '..']);
         foreach ($fileList as $FL){

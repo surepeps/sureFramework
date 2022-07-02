@@ -9,14 +9,18 @@
 
 namespace app\Controllers;
 
+use sFrameApp\Database\Database;
 use sFrameApp\View\View;
+use sFrameApp\FileHandling\Filehandling;
 
 class UserController
 {
     public function index()
     {
-        $names = ['name' => 'Hassan', 'username' => 'Surecoder', 'age' => 44];
-        return View::render('admin.home', $names);
+//         return Filehandling::filePath('config/database.php');
+        return Database::instance();
+//        $names = ['name' => 'Hassan', 'username' => 'Surecoder', 'age' => Filehandling::filePath('config/database.php')];
+//        return View::render('admin.home', $names);
 
     }
 }
