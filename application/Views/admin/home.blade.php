@@ -60,10 +60,10 @@
     <div class=""card-title>
 
     </div>
-    <div class="card-body">
-        <p class="card-title">Name: {{ $name }}</p>
-        <p>Path: {{ $age }}</p>
-    </div>
+{{--    <div class="card-body">--}}
+{{--        <p class="card-title">Name: {{ $name }}</p>--}}
+{{--        <p>Path: {{ $age }}</p>--}}
+{{--    </div>--}}
 </div>
 
 </body>
