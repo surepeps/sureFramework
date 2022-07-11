@@ -52,14 +52,14 @@ class Request
      *
      * @return void
      */
-    private function __constructor() {}
+    private function __construct() {}
 
     /**
      * Request collector
      *
      * @return void
      */
-    public static function collector(): void
+    public static function collector()
     {
         static::$script_name = str_replace('\\', '', dirname(Server::getValue('SCRIPT_NAME')));
         static::setBaseUrl();
@@ -70,7 +70,7 @@ class Request
      * @return void
      *
      */
-    private static function setBaseUrl(): void
+    private static function setBaseUrl()
     {
         $protocol = Server::getValue('REQUEST_SCHEME') .'://';
         $host = Server::getValue('HTTP_HOST');
@@ -84,7 +84,7 @@ class Request
      * @return void
      *
      */
-    private static function setUrl(): void
+    private static function setUrl()
     {
         $request_url = urldecode(Server::getValue('REQUEST_URI'));
         $request_url = rtrim(preg_replace("#^". static::$script_name. '#', '', $request_url), '/');
@@ -103,7 +103,7 @@ class Request
      * @return string
      *
      */
-    public static function baseUrl(): string
+    public static function baseUrl()
     {
         return static::$base_Url;
     }
@@ -112,7 +112,7 @@ class Request
      * @return string
      *
      */
-    public static function urlPath(): string
+    public static function urlPath()
     {
         return static::$url;
     }
@@ -121,7 +121,7 @@ class Request
      * @return string
      *
      */
-    public static function urlQuery(): string
+    public static function urlQuery()
     {
         return static::$uQuery;
     }
@@ -130,7 +130,7 @@ class Request
      * @return string
      *
      */
-    public static function urlQueryPath(): string
+    public static function urlQueryPath()
     {
         return static::$cUrl;
     }
@@ -138,7 +138,7 @@ class Request
     /**
      * @return string
      */
-    public static function urlMethod(): string
+    public static function urlMethod()
     {
         return Server::getValue('REQUEST_METHOD');
     }
@@ -148,7 +148,7 @@ class Request
      * @param string $key
      * @return string
      */
-    public static function get(string $key): string
+    public static function get(string $key)
     {
         return static::value($key, $_GET);
     }
@@ -159,7 +159,7 @@ class Request
      * @param string $key
      * @return boolean
      */
-    public static function has(array $type, string $key): bool
+    public static function has(array $type, string $key)
     {
         return array_key_exists($key, $type);
     }
@@ -181,7 +181,7 @@ class Request
      * @param string $key
      * @return string
      */
-    public static function post(string $key): string
+    public static function post(string $key)
     {
         return static::value($key, $_POST);
     }
@@ -192,7 +192,7 @@ class Request
      * @param string $value
      * @return string $value
      */
-    public static function set(string $key, string $value): string
+    public static function set(string $key, string $value)
     {
         $_REQUEST[$key] = $value;
         $_POST[$key] = $value;
@@ -205,7 +205,7 @@ class Request
      *
      * @return string
      */
-    public static function previous(): string
+    public static function previous()
     {
         return Server::getValue('HTTP_REFERER');
     }
@@ -215,7 +215,7 @@ class Request
      *
      * @return array
      */
-    public static function all(): array
+    public static function all()
     {
         return $_REQUEST;
     }

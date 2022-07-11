@@ -11,6 +11,7 @@ namespace sFrameApp\View;
 
 use sFrameApp\FileHandling\Filehandling;
 use Jenssegers\Blade\Blade;
+use sFrameApp\Session\Session;
 
 class View
 {
@@ -29,6 +30,11 @@ class View
      */
     public static function render(string $viewPath, array $data = []): string
     {
+        // error handling
+        $errs = Session::flashSession('errors');
+        $old = Session::flashSession('old');
+        $data = array_merge($data, ['errors' => $errs, 'old' => $old]);
+
         return static::templateBlade($viewPath,$data);
     }
 

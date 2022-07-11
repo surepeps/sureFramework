@@ -7,7 +7,10 @@
         "psr-4": {
             "app\\" : "application/",
             "sFrameApp\\": "sframe/system/"
-        }
+        },
+        "files": [
+            "sframe/system/Helpers/Helper.php"
+        ]
     },
     "authors": [
         {
@@ -19,6 +22,9 @@
     "require": {
         "filp/whoops": "^2.14",
         "jenssegers/blade": "^1.4",
-      "ext-pdo": "*"
+      "ext-pdo": "*",
+        "rakit/validation": "^1.4",
+        "respect/validation": "^2.2",
+        "vlucas/phpdotenv": "^5.4"
     }
 }

@@ -12,6 +12,7 @@ namespace sFrameApp\Router;
 //use sFrameApp\Exceptions\Whoops;
 
 use sFrameApp\Http\Request;
+use sFrameApp\View\View;
 
 class Route
 {
@@ -176,9 +177,8 @@ class Route
                 }
             }
         }
-        die("Not found");
 
-//        return false;
+        return View::render('errors.404');
     }
 
 

@@ -25,6 +25,8 @@ Route::get('/home', function (){
     echo "<a href='http://localhost/sureframe/public/user' >Click Here to go back</a>";
 });
 
+Route::get('', 'admin\AdminController@index');
+
 Route::get('/user', 'UserController@index');
 
 Route::parent('/admin', function (){

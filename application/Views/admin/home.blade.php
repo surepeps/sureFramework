@@ -56,16 +56,22 @@
     </div>
 </nav>
 
-<div class="card mt-5 mx-auto">
-    <div class=""card-title>
+{{--<p class="mt-4 text-center" >{{ $data }}</p>--}}
+{{--@foreach($data['data'] as $us)--}}
+{{--<div class="card mt-5 mx-auto">--}}
+{{--    <div class=""card-title>--}}
 
-    </div>
-{{--    <div class="card-body">--}}
-{{--        <p class="card-title">Name: {{ $name }}</p>--}}
-{{--        <p>Path: {{ $age }}</p>--}}
 {{--    </div>--}}
-</div>
 
+{{--    <div class="card-body">--}}
+{{--        <p class="card-title">Username: {{ $us->username }}</p>--}}
+{{--        <p>Email: {{ $us->email }}</p>--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--@endforeach--}}
+{{--<div class="mt-5">--}}
+{{--    {!! \sFrameApp\Database\Database::paginatorLink($data['current_page'], $data['pages']) !!}--}}
+{{--</div>--}}
 </body>
 </html>
 
