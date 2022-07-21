@@ -56,12 +56,6 @@ class App
          */
         $routHandler = Route::routeHandler();
 
-
-
-//        echo "<pre>";
-//        print_r(Route::routeHandler());
-//        echo "</pre>";
-//        exit;
         echo Response::outputData($routHandler);
     }
 

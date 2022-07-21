@@ -35,6 +35,7 @@ class UserController
 
         print_r($arrayData);
         exit;
+
 //        $vart = $_REQUEST;
 //        print_r($_REQUEST);
 //        return Database::instance();
@@ -42,4 +43,5 @@ class UserController
 //        return ROOT;
 
     }
+
 }

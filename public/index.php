@@ -35,5 +35,3 @@ require __DIR__.'/../skyrocket/Application.php';
  * framework starter.
  */
 Application::starter();
-
-//$SFW = (new Application)->starter();

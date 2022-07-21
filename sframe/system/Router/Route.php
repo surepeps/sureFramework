@@ -8,9 +8,6 @@
 
 namespace sFrameApp\Router;
 
-
-//use sFrameApp\Exceptions\Whoops;
-
 use sFrameApp\Http\Request;
 use sFrameApp\View\View;
 
