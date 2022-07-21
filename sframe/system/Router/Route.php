@@ -8,6 +8,7 @@
 
 namespace sFrameApp\Router;
 
+use sFrameApp\FileHandling\Filehandling;
 use sFrameApp\Http\Request;
 use sFrameApp\View\View;
 
@@ -119,7 +120,7 @@ class Route
         }
 
         static::$parent = $outer_parent;
-     }
+    }
 
     /**
      *
@@ -170,7 +171,7 @@ class Route
                 }
 
                 if ($matched == true){
-                   return static::invokeRoute($route, $parameters);
+                    return static::invokeRoute($route, $parameters);
                 }
             }
         }
@@ -195,8 +196,10 @@ class Route
             return call_user_func_array($callback, $params);
         } elseif ( strpos($callback, '@') !== false ) {
             list($controller, $method) = explode('@', $callback);
+
             // load the controller by namespace
-            $controller = 'app\Controllers\\' . $controller;
+            $controller = 'app\Controllers\\' . str_replace(['/', '\\', '.'], Filehandling::ds(), $controller );
+
             if (class_exists($controller)){
                 $controllerObject = new $controller;
 
